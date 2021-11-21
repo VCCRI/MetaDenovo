@@ -3,8 +3,11 @@ MetaDenovo : An automated framework to detect de novo mutations from whole genom
 MetaDenovo utilizes consensus for current state-of-the-art de novo callers (DenovoGear, VarScan2, TrioDenovo and Phasebytransmission). It is developed using Cromwell (an open-source Workflow Management System for bioinformatics) and WDL(Workflow Definition Language) developed by Broad Institute. It is executed on AWS Cloud computing environment.
 
 Input File Requirements
+
   o	WGS BAM files for trio (Mother, Father, Child)
+  
   o	Genome Reference file (.fa format)
+  
   o	Pedigree file (PED file format)
 
 System Requirements
