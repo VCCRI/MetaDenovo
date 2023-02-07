@@ -36,12 +36,13 @@ b.	Type in command “sudo su - ec2-user” to switch of user’s home directory
 
 c.	Copy MetaDenovo WDL file onto Cromwell server
 
+c.	Zip of dependent files into imports directory.
+
+       zip imports DenovoGearPipeline.wdl DenovoGearPostProcessing.wdl VarScan2PostProcessing.wdl VarScan2Pipeline.wdl TrioDenovoPipeline.wdl PhasebytransmissionPipeline.wdl ConsensusDNMs.wdl
+
 d.	Run the MetaDenovo workflow using curl command :
 
-curl -X POST "http://localhost:8000/api/workflows/v1" \
--H "accept: application/json" \
--F "workflowSource=@main_MetaCaller.wdl"
-	
+curl -X POST "http://localhost:8000/api/workflows/v1" -H "accept: application/json" -F "workflowSource=@MetaDenovo.wdl" -F "workflowDependencies=@imports.zip"	
 
 	
 
