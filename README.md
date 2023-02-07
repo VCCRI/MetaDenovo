@@ -42,7 +42,7 @@ c.	Zip of dependent files into imports directory.
 
 d.	Run the MetaDenovo workflow using curl command :
 
-curl -X POST "http://localhost:8000/api/workflows/v1" -H "accept: application/json" -F "workflowSource=@MetaDenovo.wdl" -F "workflowDependencies=@imports.zip"	
+        curl -X POST "http://localhost:8000/api/workflows/v1" -H "accept: application/json" -F "workflowSource=@MetaDenovo.wdl" -F "workflowDependencies=@imports.zip"	
 
 	
 
