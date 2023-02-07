@@ -1,0 +1,23 @@
+{
+  "MetaDenovo_workflow.mother_bam": "s3://vccri-giannoulatou-lab-clihad-deepvariant/CEPH-trio/bams/NA12892.bam",
+  "MetaDenovo_workflow.mother_bam_bai": "s3://vccri-giannoulatou-lab-clihad-deepvariant/CEPH-trio/bams/NA12892.bam.bai",
+  
+  "MetaDenovo_workflow.father_bam": "s3://vccri-giannoulatou-lab-clihad-deepvariant/CEPH-trio/bams/NA12891.bam",
+  "MetaDenovo_workflow.father_bam_bai": "s3://vccri-giannoulatou-lab-clihad-deepvariant/CEPH-trio/bams/NA12891.bam.bai",
+
+  "MetaDenovo_workflow.child_bam": "s3://vccri-giannoulatou-lab-clihad-deepvariant/CEPH-trio/bams/NA12878.bam",
+  "MetaDenovo_workflow.child_bam_bai": "s3://vccri-giannoulatou-lab-clihad-deepvariant/CEPH-trio/bams/NA12878.bam.bai",
+   
+  "MetaDenovo_workflow.reference": "s3://vccri-giannoulatou-lab-clihad-deepvariant/demoref/GRCh38_full_analysis_set_plus_decoy_hla.fa",
+  "MetaDenovo_workflow.reference_fai": "s3://vccri-giannoulatou-lab-clihad-deepvariant/demoref/GRCh38_full_analysis_set_plus_decoy_hla.fa.fai",
+  "MetaDenovo_workflow.reference_dict": "s3://vccri-giannoulatou-lab-clihad-deepvariant/demoref/GRCh38_full_analysis_set_plus_decoy_hla.dict",
+  
+  "MetaDenovo_workflow.ped_file": "s3://anushi-eagle-simulator-data/simulated_data/1000G_CEPH_trio/output/TrioDenovo_GATK/CEPH_trio.ped",
+  
+  "MetaDenovo_workflow.chromosome_ids": [21, 22],
+  "MetaDenovo_workflow.gatk_vcf": "s3://anushi-eagle-simulator-data/simulated_data/1000G_CEPH_trio/output/TrioDenovo_GATK/CEPH-trio-gatk4-bp-co_called_filterd.vqsr.DBN_filtered.vcf",
+  "MetaDenovo_workflow.snpSiftJar": "s3://anushi-eagle-simulator-data/softwares/snpEff/SnpSift.jar",
+  "MetaDenovo_workflow.python_file": "s3://vccri-gwfcore-mictro/MetaDenovo/DenovoGear_numeric_genotype.py",
+  "MetaDenovo_workflow.Consensus_DNM_script": "s3://vccri-gwfcore-mictro/MetaDenovo/MetaDenovoConsensusDNMs.sh"
+}
+
