@@ -6,6 +6,8 @@ MetaDenovo utilizes consensus for current state-of-the-art de novo callers (Deno
 
   o	WGS BAM files for trio (Mother, Father, Child)
   
+  o	Trio VCF file from variant calling pipeline 
+  
   o	Genome Reference file (.fa format)
   
   o	Pedigree file (PED file format)
