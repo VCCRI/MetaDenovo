@@ -1,7 +1,8 @@
 workflow TrioDenovoPipeline {
-	File gatk_vcf = "path-of-VCF-file"
-	File ped_file = "path-of-pedigree-file"
+	File gatk_vcf = "s3://vccri-giannoulatou-lab-denovo-mutations/CHD-Jan-2023/trio-2252/trio_2252.vcf"
+	File ped_file = "s3://vccri-giannoulatou-lab-denovo-mutations/CHD-Jan-2023/trio-2252/trio_2252.ped"
 	File snpSiftJar = "s3://anushi-eagle-simulator-data/softwares/snpEff/SnpSift.jar"
+	File selectDNMGenotype_program = "s3://vccri-gwfcore-mictro/MetaDenovo/TrioDenovo_select_DNM_genotype.py"
 	
 	#File gatk_vcf
 	#File ped_file
@@ -26,10 +27,17 @@ workflow TrioDenovoPipeline {
 			snpSiftJarFile=snpSiftJar,
             Triodenovo_chr1_22_vcf=DenovoQualityDatatype.Triodenovo_chr1_22_vcf
 		}
+
+		call SelectDNMGenotype_dnSNVs {
+			input:
+			selectDNMGenotype_program=selectDNMGenotype_program,
+			Triodenovo_annotated_file=AnnotateDNMsTrioDenovoVCF.Triodenovo_output_file_annotated
+		}
 		
 		## call ListOfDNMs to generate lists of de novo mutations.
 		call ListOfDNMs {
             input:
+			Triodenovo_selected_dnSNV=SelectDNMGenotype_dnSNVs.Triodenovo_selected_dnSNV,
 			Triodenovo_annotated_file=AnnotateDNMsTrioDenovoVCF.Triodenovo_output_file_annotated
 		}
 		
@@ -38,6 +46,7 @@ workflow TrioDenovoPipeline {
 			File Triodenovo_output_DQ_datatype = DenovoQualityDatatype.Triodenovo_output_DQ_datatype
 			File Triodenovo_chr1_22_vcf = DenovoQualityDatatype.Triodenovo_chr1_22_vcf
 			File Triodenovo_output_file_annotated = AnnotateDNMsTrioDenovoVCF.Triodenovo_output_file_annotated
+			File Triodenovo_selected_dnSNV = SelectDNMGenotype_dnSNVs.Triodenovo_selected_dnSNV
 			File TrioDenovo_listof_allDNMs_file = ListOfDNMs.TrioDenovo_listof_allDNMs_file
 			File TrioDenovo_list_of_snps_output = ListOfDNMs.TrioDenovo_list_of_snps_output
 			File TrioDenovo_list_of_indels_output = ListOfDNMs.TrioDenovo_list_of_indels_output
@@ -82,6 +91,7 @@ task DenovoQualityDatatype {
         memory: "1GB"
         cpu: 1
         disks: "local-disk"
+		maxRetries: 3
     }
    
     output {
@@ -113,16 +123,39 @@ task AnnotateDNMsTrioDenovoVCF {
 	}
 }
 
+task SelectDNMGenotype_dnSNVs {
+	File selectDNMGenotype_program
+    File Triodenovo_annotated_file
+	
+    command {
+        python ${selectDNMGenotype_program} ${Triodenovo_annotated_file} > Triodenovo_selected_dnSNV.vcf 
+    }
+ 
+    runtime {
+        docker: "python:2.7.18-stretch"
+        memory: "4GB"
+        cpu: 1
+        disks: "local-disk"
+    }
+   
+    output {
+        File Triodenovo_selected_dnSNV = "Triodenovo_selected_dnSNV.vcf"
+	}
+}
+
 ## Lists of de novo mutations with chromosome and position are generated for snps, indels and both.
 
 task ListOfDNMs {
-   File Triodenovo_annotated_file
-	
+	File Triodenovo_selected_dnSNV
+	File Triodenovo_annotated_file
+		
 	command {
 	
-		grep "VARTYPE=SNP\|VARTYPE=INS\|VARTYPE=DEL" ${Triodenovo_annotated_file} | cut -f1,2 | sed 's/\t/|/g' | sort | uniq > TrioDenovo_listof_allDNMs_file.txt | \
+		grep "VARTYPE=SNP" ${Triodenovo_selected_dnSNV} | cut -f1,2 | sed 's/\t/|/g' | sort | uniq >> TrioDenovo_listof_allDNMs_file.txt | \
+
+		grep "VARTYPE=INS\|VARTYPE=DEL" ${Triodenovo_annotated_file} | cut -f1,2 | sed 's/\t/|/g' | sort | uniq >> TrioDenovo_listof_allDNMs_file.txt | \
 		
-		grep "VARTYPE=SNP" ${Triodenovo_annotated_file} | cut -f1,2 | sed 's/\t/|/g' | sort | uniq > TrioDenovo_listof_snps_file.txt | \
+		grep "VARTYPE=SNP" ${Triodenovo_selected_dnSNV} | cut -f1,2 | sed 's/\t/|/g' | sort | uniq > TrioDenovo_listof_snps_file.txt | \
 		
 		grep "VARTYPE=INS\|VARTYPE=DEL" ${Triodenovo_annotated_file} | cut -f1,2 | sed 's/\t/|/g' | sort | uniq > TrioDenovo_listof_indels_file.txt
 	}

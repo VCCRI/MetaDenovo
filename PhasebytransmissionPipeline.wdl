@@ -7,12 +7,12 @@ workflow PhasebytransmissionPipeline {
 	#File reference_dict
 	
 	
-	File gatk_vcf = "path-of-VCF-file"
-	File ped_file = "path-of-pedigree-file"
+	File gatk_vcf = "s3://vccri-giannoulatou-lab-denovo-mutations/CHD-Jan-2023/trio-742/trio_742_no_annotation.vcf"
+	File ped_file = "s3://vccri-giannoulatou-lab-denovo-mutations/CHD-Jan-2023/trio-742/trio_742.ped"
 	File snpSiftJar = "s3://anushi-eagle-simulator-data/softwares/snpEff/SnpSift.jar"
-	File reference = "path-of-reference-file"
-	File reference_fai = "path-of-reference-index-file"
-	File reference_dict = "path-of-reference-dictionary-file"
+	File reference = "s3://vccri-giannoulatou-lab-denovo-mutations/References_and_Databases/hg38.noalt.decoy.bwa/GCA_000001405.15_GRCh38_no_alt_plus_hs38d1_analysis_set.fna"
+	File reference_fai = "s3://vccri-giannoulatou-lab-denovo-mutations/References_and_Databases/hg38.noalt.decoy.bwa/GCA_000001405.15_GRCh38_no_alt_plus_hs38d1_analysis_set.fna.fai"
+	File reference_dict = "s3://vccri-giannoulatou-lab-denovo-mutations/References_and_Databases/hg38.noalt.decoy.bwa/GCA_000001405.15_GRCh38_no_alt_plus_hs38d1_analysis_set.dict"
 	
  	
         ## Call RunPhasebytranmission task to run Phasebytranmission callers.

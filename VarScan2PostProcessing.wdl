@@ -1,12 +1,10 @@
 workflow VarScan2PostProcessing {
     
-	#Array[File] VarScan2_output_snp_files = ["s3://anushi-eagle-simulator-data/simulated_data/1000G_CEPH_trio_V2/VarScan2_output/21_varscan2_output.snp.vcf","s3://anushi-eagle-simulator-data/simulated_data/1000G_CEPH_trio_V2/VarScan2_output/22_varscan2_output.snp.vcf"]
-	#Array[File] VarScan2_output_indel_files = ["s3://anushi-eagle-simulator-data/simulated_data/1000G_CEPH_trio_V2/VarScan2_output/21_varscan2_output.indel.vcf","s3://anushi-eagle-simulator-data/simulated_data/1000G_CEPH_trio_V2/VarScan2_output/22_varscan2_output.indel.vcf"]
-	#File snpSiftJar = "s3://anushi-eagle-simulator-data/softwares/snpEff/SnpSift.jar"
+	File snpSiftJar = "s3://anushi-eagle-simulator-data/softwares/snpEff/SnpSift.jar"
 	
 	Array[File] VarScan2_output_snp_files
 	Array[File] VarScan2_output_indel_files
-	File snpSiftJar
+	#File snpSiftJar
 	
 	## Post-processing steps are executed for two types of variants - snps and indels. 
 	## The steps are executed in parallel for each variant type, so scatter parallelism is perfomed.
@@ -66,7 +64,7 @@ task ExtractDNMsVarScan2VCF {
     
     command {
 		
-        java -jar ${snpSiftJarFile} filter "( FILTER = 'PASS' & exists DENOVO)" ${VarScan2_snp_VCF_file} > VarScan2_snp_DNMs_file.vcf;java -jar ${snpSiftJarFile} filter "( FILTER = 'PASS' & exists DENOVO)" ${VarScan2_indel_VCF_file} > VarScan2_indel_DNMs_file.vcf
+        java -jar ${snpSiftJarFile} filter "( FILTER = 'PASS' & exists DENOVO & GEN[0].GT == '0/0'  & GEN[1].GT == '0/0' & GEN[2].GT == '0/1')" ${VarScan2_snp_VCF_file} > VarScan2_snp_DNMs_file.vcf;java -jar ${snpSiftJarFile} filter "( FILTER = 'PASS' & exists DENOVO & GEN[0].GT == '0/0'  & GEN[1].GT == '0/0' & GEN[2].GT == '0/1')" ${VarScan2_indel_VCF_file} > VarScan2_indel_DNMs_file.vcf
     }
  
     runtime {
