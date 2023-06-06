@@ -1,6 +1,6 @@
 workflow VarScan2PostProcessing {
     
-	File snpSiftJar = "s3://anushi-eagle-simulator-data/softwares/snpEff/SnpSift.jar"
+	File snpSiftJar = "s3://vccri-giannoulatou-lab-denovo-mutations/softwares/snpEff/SnpSift.jar"
 	
 	Array[File] VarScan2_output_snp_files
 	Array[File] VarScan2_output_indel_files

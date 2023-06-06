@@ -6,25 +6,26 @@ import "ConsensusDNMs.wdl" as consensusDNM_p
 
 workflow MetaDenovo_workflow {
 	 
-	  File mother_bam = "s3://vccri-giannoulatou-lab-denovo-mutations/CHD-Jan-2023/trio-2252/2253.markDup.setTags.bqsr.bam"
-	  File mother_bam_bai = "s3://vccri-giannoulatou-lab-denovo-mutations/CHD-Jan-2023/trio-2252/2253.markDup.setTags.bqsr.bai"
+	  File mother_bam = "s3://vccri-giannoulatou-lab-denovo-mutations/CHD-Jan-2023/trio-2306/2309.markDup.setTags.bqsr.bam"
+	  File mother_bam_bai = "s3://vccri-giannoulatou-lab-denovo-mutations/CHD-Jan-2023/trio-2306/2309.markDup.setTags.bqsr.bai"
   
-	  File father_bam = "s3://vccri-giannoulatou-lab-denovo-mutations/CHD-Jan-2023/trio-2252/2254.markDup.setTags.bqsr.bam"
-	  File father_bam_bai = "s3://vccri-giannoulatou-lab-denovo-mutations/CHD-Jan-2023/trio-2252/2254.markDup.setTags.bqsr.bai"
+	  File father_bam = "s3://vccri-giannoulatou-lab-denovo-mutations/CHD-Jan-2023/trio-2306/2310.markDup.setTags.bqsr.bam"
+	  File father_bam_bai = "s3://vccri-giannoulatou-lab-denovo-mutations/CHD-Jan-2023/trio-2306/2310.markDup.setTags.bqsr.bai"
 
-	  File child_bam = "s3://vccri-giannoulatou-lab-denovo-mutations/CHD-Jan-2023/trio-2252/2252.markDup.setTags.bqsr.bam"
-	  File child_bam_bai = "s3://vccri-giannoulatou-lab-denovo-mutations/CHD-Jan-2023/trio-2252/2252.markDup.setTags.bqsr.bai"
+	  File child_bam = "s3://vccri-giannoulatou-lab-denovo-mutations/CHD-Jan-2023/trio-2306/2306.markDup.setTags.bqsr.bam"
+	  File child_bam_bai = "s3://vccri-giannoulatou-lab-denovo-mutations/CHD-Jan-2023/trio-2306/2306.markDup.setTags.bqsr.bai"
 	  
 	  ##Array[Int] chromosome_ids = [20,21,22]
 	  Array[Int] chromosome_ids = [1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20,21,22]
-	  
+
 	  File reference = "s3://vccri-giannoulatou-lab-denovo-mutations/References_and_Databases/hg38.noalt.decoy.bwa/GCA_000001405.15_GRCh38_no_alt_plus_hs38d1_analysis_set.fna"
 	  File reference_fai = "s3://vccri-giannoulatou-lab-denovo-mutations/References_and_Databases/hg38.noalt.decoy.bwa/GCA_000001405.15_GRCh38_no_alt_plus_hs38d1_analysis_set.fna.fai"
 	  File reference_dict = "s3://vccri-giannoulatou-lab-denovo-mutations/References_and_Databases/hg38.noalt.decoy.bwa/GCA_000001405.15_GRCh38_no_alt_plus_hs38d1_analysis_set.dict"
+
+	  File ped_file = "s3://vccri-giannoulatou-lab-denovo-mutations/CHD-Jan-2023/trio-2306/trio_2306.ped"
+	  File gatk_vcf = "s3://vccri-giannoulatou-lab-denovo-mutations/CHD-Jan-2023/trio-2306/trio_2306.vcf"
 	  
-	  File ped_file = "s3://vccri-giannoulatou-lab-denovo-mutations/CHD-Jan-2023/trio-2252/trio_2252.ped"
-	  File gatk_vcf = "s3://vccri-giannoulatou-lab-denovo-mutations/CHD-Jan-2023/trio-2252/trio_2252.vcf"
-	  File snpSiftJar = "s3://anushi-eagle-simulator-data/softwares/snpEff/SnpSift.jar"
+	  File snpSiftJar = "s3://vccri-giannoulatou-lab-denovo-mutations/softwares/snpEff/SnpSift.jar"
 	  File python_file = "s3://vccri-gwfcore-mictro/MetaDenovo/DenovoGear_numeric_genotype.py"
 	  File Consensus_DNM_script = "s3://vccri-gwfcore-mictro/MetaDenovo/MetaDenovoConsensusDNMs.sh"
 	  
@@ -33,7 +34,6 @@ workflow MetaDenovo_workflow {
 		call PBT_p.PhasebytransmissionPipeline as PBT_p {
 			input:
 			gatk_vcf=gatk_vcf,
-			#gatk_vcf_idx=gatk_vcf_idx,
 			ped_file=ped_file,
 			reference=reference,
 			reference_fai=reference_fai,

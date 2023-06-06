@@ -1,18 +1,18 @@
 workflow PhasebytransmissionPipeline {
-	#File gatk_vcf
-	#File ped_file
-	#File snpSiftJar
-	#File reference
-	#File reference_fai
-	#File reference_dict
+	File gatk_vcf
+	File ped_file
+	File snpSiftJar
+	File reference
+	File reference_fai
+	File reference_dict
 	
 	
-	File gatk_vcf = "s3://vccri-giannoulatou-lab-denovo-mutations/CHD-Jan-2023/trio-742/trio_742_no_annotation.vcf"
-	File ped_file = "s3://vccri-giannoulatou-lab-denovo-mutations/CHD-Jan-2023/trio-742/trio_742.ped"
-	File snpSiftJar = "s3://anushi-eagle-simulator-data/softwares/snpEff/SnpSift.jar"
-	File reference = "s3://vccri-giannoulatou-lab-denovo-mutations/References_and_Databases/hg38.noalt.decoy.bwa/GCA_000001405.15_GRCh38_no_alt_plus_hs38d1_analysis_set.fna"
-	File reference_fai = "s3://vccri-giannoulatou-lab-denovo-mutations/References_and_Databases/hg38.noalt.decoy.bwa/GCA_000001405.15_GRCh38_no_alt_plus_hs38d1_analysis_set.fna.fai"
-	File reference_dict = "s3://vccri-giannoulatou-lab-denovo-mutations/References_and_Databases/hg38.noalt.decoy.bwa/GCA_000001405.15_GRCh38_no_alt_plus_hs38d1_analysis_set.dict"
+	#File gatk_vcf = "s3://vccri-giannoulatou-lab-denovo-mutations/CHD-Jan-2023/trio-742/trio_742_no_annotation.vcf"
+	#File ped_file = "s3://vccri-giannoulatou-lab-denovo-mutations/CHD-Jan-2023/trio-742/trio_742.ped"
+	#File snpSiftJar = "s3://vccri-giannoulatou-lab-denovo-mutations/softwares/snpEff/SnpSift.jar"
+	#File reference = "s3://vccri-giannoulatou-lab-denovo-mutations/References_and_Databases/hg38.noalt.decoy.bwa/GCA_000001405.15_GRCh38_no_alt_plus_hs38d1_analysis_set.fna"
+	#File reference_fai = "s3://vccri-giannoulatou-lab-denovo-mutations/References_and_Databases/hg38.noalt.decoy.bwa/GCA_000001405.15_GRCh38_no_alt_plus_hs38d1_analysis_set.fna.fai"
+	#File reference_dict = "s3://vccri-giannoulatou-lab-denovo-mutations/References_and_Databases/hg38.noalt.decoy.bwa/GCA_000001405.15_GRCh38_no_alt_plus_hs38d1_analysis_set.dict"
 	
  	
         ## Call RunPhasebytranmission task to run Phasebytranmission callers.

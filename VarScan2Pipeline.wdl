@@ -2,37 +2,37 @@ import "VarScan2PostProcessing.wdl" as VarScan2_post
 
 workflow VarScan2Pipeline {
 
-	#File father_bam
-    #File father_bam_bai
-    #File mother_bam
-    #File mother_bam_bai
-    #File child_bam
-    #File child_bam_bai
-    #File reference
-    #File reference_fai
-    #File reference_dict
-    #Array[Int] chromosome_ids
-    #Array[String] chromosomes = prefix("chr", chromosome_ids)
+	File father_bam
+    File father_bam_bai
+    File mother_bam
+    File mother_bam_bai
+    File child_bam
+    File child_bam_bai
+    File reference
+    File reference_fai
+    File reference_dict
+    Array[Int] chromosome_ids
+    Array[String] chromosomes = prefix("chr", chromosome_ids)
 	#File snpSiftJar
     
-	File mother_bam = "s3://vccri-giannoulatou-lab-clihad-deepvariant/CEPH-trio/bams/NA12892.bam"
-	File mother_bam_bai = "s3://vccri-giannoulatou-lab-clihad-deepvariant/CEPH-trio/bams/NA12892.bam.bai"
+	#File mother_bam = "s3://vccri-giannoulatou-lab-clihad-deepvariant/CEPH-trio/bams/NA12892.bam"
+	#File mother_bam_bai = "s3://vccri-giannoulatou-lab-clihad-deepvariant/CEPH-trio/bams/NA12892.bam.bai"
   
-	File father_bam = "s3://vccri-giannoulatou-lab-clihad-deepvariant/CEPH-trio/bams/NA12891.bam"
-	File father_bam_bai = "s3://vccri-giannoulatou-lab-clihad-deepvariant/CEPH-trio/bams/NA12891.bam.bai"
+	#File father_bam = "s3://vccri-giannoulatou-lab-clihad-deepvariant/CEPH-trio/bams/NA12891.bam"
+	#File father_bam_bai = "s3://vccri-giannoulatou-lab-clihad-deepvariant/CEPH-trio/bams/NA12891.bam.bai"
 
-	File child_bam = "s3://vccri-giannoulatou-lab-clihad-deepvariant/CEPH-trio/bams/NA12878.bam"
-	File child_bam_bai = "s3://vccri-giannoulatou-lab-clihad-deepvariant/CEPH-trio/bams/NA12878.bam.bai"
+	#File child_bam = "s3://vccri-giannoulatou-lab-clihad-deepvariant/CEPH-trio/bams/NA12878.bam"
+	#File child_bam_bai = "s3://vccri-giannoulatou-lab-clihad-deepvariant/CEPH-trio/bams/NA12878.bam.bai"
 	  
 	##Array[Int] chromosome_ids = [20,21,22]
-	Array[Int] chromosome_ids = [1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20,21,22]
-	Array[String] chromosomes = prefix("chr", chromosome_ids)
+	#Array[Int] chromosome_ids = [1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20,21,22]
+	#Array[String] chromosomes = prefix("chr", chromosome_ids)
 	  
-	File reference = "s3://vccri-giannoulatou-lab-clihad-deepvariant/demoref/GRCh38_full_analysis_set_plus_decoy_hla.fa"
-	File reference_fai = "s3://vccri-giannoulatou-lab-clihad-deepvariant/demoref/GRCh38_full_analysis_set_plus_decoy_hla.fa.fai"
-	File reference_dict = "s3://vccri-giannoulatou-lab-clihad-deepvariant/demoref/GRCh38_full_analysis_set_plus_decoy_hla.dict"
+	#File reference = "s3://vccri-giannoulatou-lab-clihad-deepvariant/demoref/GRCh38_full_analysis_set_plus_decoy_hla.fa"
+	#File reference_fai = "s3://vccri-giannoulatou-lab-clihad-deepvariant/demoref/GRCh38_full_analysis_set_plus_decoy_hla.fa.fai"
+	#File reference_dict = "s3://vccri-giannoulatou-lab-clihad-deepvariant/demoref/GRCh38_full_analysis_set_plus_decoy_hla.dict"
 	
-	File snpSiftJar = "s3://anushi-eagle-simulator-data/softwares/snpEff/SnpSift.jar"
+	File snpSiftJar = "s3://vccri-giannoulatou-lab-denovo-mutations/softwares/snpEff/SnpSift.jar"
 	
 	## Call samtools mpileup and VarScan2 caller tasks per chromosome as scatter parallelism
 	
