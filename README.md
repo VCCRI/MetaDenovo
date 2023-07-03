@@ -38,13 +38,12 @@ c.	Copy MetaDenovo WDL file onto Cromwell server
 
 c.	Zip of dependent files into imports directory.
 
-       zip imports DenovoGearPipeline.wdl DenovoGearPostProcessing.wdl VarScan2PostProcessing.wdl VarScan2Pipeline.wdl TrioDenovoPipeline.wdl PhasebytransmissionPipeline.wdl ConsensusDNMs.wdl
+       zip imports DenovoGearPipeline.wdl VarScan2Pipeline.wdl TrioDenovoPipeline.wdl PhasebytransmissionPipeline.wdl ConsensusDNMs.wdl
 
-d.	Run the MetaDenovo workflow using curl command :
+d.	Run the MetaDenovo DEMO workflow using curl command :
 
-       curl -X POST "http://localhost:8000/api/workflows/v1" -H "accept: application/json" -F "workflowSource=@MetaDenovo.wdl" -F "workflowDependencies=@imports.zip"	
-
+       curl -X POST "http://localhost:8000/api/workflows/v1" -H "accept: application/json" -F "workflowSource=@MetaDenovo.wdl" -F "workflowDependencies=@imports.zip" -F "workflowInputs=@UserInputs_demo.json" -F "workflowOptions=@Options_demo.json"
 	
-
+Here, UserInputs_demo.json and Options_demo.json are provided. Please modify Options_demo.json files to set your output directory path.
 
 
