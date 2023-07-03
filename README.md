@@ -44,6 +44,22 @@ d.	Run the MetaDenovo DEMO workflow using curl command :
 
        curl -X POST "http://localhost:8000/api/workflows/v1" -H "accept: application/json" -F "workflowSource=@MetaDenovo.wdl" -F "workflowDependencies=@imports.zip" -F "workflowInputs=@UserInputs_demo.json" -F "workflowOptions=@Options_demo.json"
 	
-Here, UserInputs_demo.json and Options_demo.json are provided. Please modify Options_demo.json files to set your output directory path.
+* Here, UserInputs_demo.json and Options_demo.json are provided. Please modify Options_demo.json files to set your output directory path.
+
+* The output files are stored under MetaDenovo_workflow sub-directory in the user provided output directory path (using parameter final_workflow_outputs_dir in Options_demo.json file) on S3.
+
+* The worklow log files is located under wf_logs directory (provided by final_workflow_log_dir parameter in Options_demo.json file) on S3.
+
+* Check for message "Workflow MetaDenovo_workflow complete" in workflow log file for successful completion of the workflow.
+
+* The demo workflow should produce following output files under call-consensusDNM_snv and call-consensusDNM_indel sub-directories in the MetaDenovo_workflow sub-directory :-
+
+  For de novo SNVs : ALL_dnSNP.txt, MetaDenovo_four_callers_SNP.txt, MetaDenovo_three_callers_SNP.txt, MetaDenovo_two_callers_SNP.txt and MetaDenovo_one_callers_SNP.txt
+
+  For de novo INDELs : ALL_dnINDEL.txt, MetaDenovo_three_callers_INDEL.txt, MetaDenovo_two_callers_INDEL.txt and MetaDenovo_one_callers_INDEL.txt
+  
+
+
+
 
 
