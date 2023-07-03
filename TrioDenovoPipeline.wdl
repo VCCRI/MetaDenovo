@@ -1,11 +1,11 @@
 workflow TrioDenovoPipeline {
-	#File gatk_vcf = "s3://vccri-giannoulatou-lab-denovo-mutations/CHD-Jan-2023/trio-2252/trio_2252.vcf"
-	#File ped_file = "s3://vccri-giannoulatou-lab-denovo-mutations/CHD-Jan-2023/trio-2252/trio_2252.ped"
+	File gatk_vcf = "s3://vccri-giannoulatou-lab-denovo-mutations/CHD-Jan-2023/trio-2252/trio_2252.vcf"
+	File ped_file = "s3://vccri-giannoulatou-lab-denovo-mutations/CHD-Jan-2023/trio-2252/trio_2252.ped"
 	File snpSiftJar = "s3://vccri-giannoulatou-lab-denovo-mutations/softwares/snpEff/SnpSift.jar"
 	File selectDNMGenotype_program = "s3://vccri-gwfcore-mictro/MetaDenovo/TrioDenovo_select_DNM_genotype.py"
 	
-	File gatk_vcf
-	File ped_file
+	#File gatk_vcf
+	#File ped_file
 	#File snpSiftJar
 	
 		## call RunTriodenovo that runs TrioDenovo caller.
