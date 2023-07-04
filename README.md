@@ -52,6 +52,8 @@ d.	Run the MetaDenovo DEMO workflow using curl command :
 
 * Check for message "Workflow MetaDenovo_workflow complete" in workflow log file for successful completion of the workflow.
 
+* It should take less than 1 hour to run DEMO data.
+
 * The demo workflow should produce following output files under call-consensusDNM_snv and call-consensusDNM_indel sub-directories in the MetaDenovo_workflow sub-directory :-
 
   For de novo SNVs : ALL_dnSNP.txt, MetaDenovo_four_callers_SNP.txt, MetaDenovo_three_callers_SNP.txt, MetaDenovo_two_callers_SNP.txt and MetaDenovo_one_callers_SNP.txt
