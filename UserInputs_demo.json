@@ -1,21 +1,21 @@
 {
-	"##_COMMENT1":"Trio INPUT BAMs",
-	"MetaDenovo_workflow.mother_bam":"s3://vccri-giannoulatou-lab-denovo-mutations/MetaDenovo/demo_data/NA12892_demo.bam",
-	"MetaDenovo_workflow.mother_bam_bai":"s3://vccri-giannoulatou-lab-denovo-mutations/MetaDenovo/demo_data/NA12892_demo.bam.bai",
-	"MetaDenovo_workflow.father_bam":"s3://vccri-giannoulatou-lab-denovo-mutations/MetaDenovo/demo_data/NA12891_demo.bam",
-	"MetaDenovo_workflow.father_bam_bai":"s3://vccri-giannoulatou-lab-denovo-mutations/MetaDenovo/demo_data/NA12891_demo.bam.bai",
-	"MetaDenovo_workflow.child_bam":"s3://vccri-giannoulatou-lab-denovo-mutations/MetaDenovo/demo_data/NA12878_demo.bam",
-	"MetaDenovo_workflow.child_bam_bai":"s3://vccri-giannoulatou-lab-denovo-mutations/MetaDenovo/demo_data/NA12878_demo.bam.bai",
-	"##_COMMENT2":"chromosome IDs",
-	"MetaDenovo_workflow.chromosome_ids":[
-		22
-	],
-	"##_COMMENT3":"Reference files",
-	"MetaDenovo_workflow.reference":"s3://vccri-giannoulatou-lab-denovo-mutations/MetaDenovo/demo_data/chr22.fa",
-	"MetaDenovo_workflow.reference_fai":"s3://vccri-giannoulatou-lab-denovo-mutations/MetaDenovo/demo_data/chr22.fa.fai",
-	"MetaDenovo_workflow.reference_dict":"s3://vccri-giannoulatou-lab-denovo-mutations/MetaDenovo/demo_data/chr22.dict",
-	"##_COMMENT4":"PEDIGREE File",
-	"MetaDenovo_workflow.ped_file":"s3://vccri-giannoulatou-lab-denovo-mutations/MetaDenovo/demo_data/CEPH_trio_30x_noheader.ped",
-	"##_COMMENT5":"GATK Output Trio VCF File",
-	"MetaDenovo_workflow.gatk_vcf":"s3://vccri-giannoulatou-lab-denovo-mutations/MetaDenovo/demo_data/input_gatk_demo.vcf"
+  "##_COMMENT1": "Trio INPUT BAMs",
+  "MetaDenovo_workflow.mother_bam": "s3://vccri-giannoulatou-lab-denovo-mutations/MetaDenovo/demo_data/NA12892_demo.bam",
+  "MetaDenovo_workflow.mother_bam_bai": "s3://vccri-giannoulatou-lab-denovo-mutations/MetaDenovo/demo_data/NA12892_demo.bam.bai",
+  "MetaDenovo_workflow.father_bam": "s3://vccri-giannoulatou-lab-denovo-mutations/MetaDenovo/demo_data/NA12891_demo.bam",
+  "MetaDenovo_workflow.father_bam_bai": "s3://vccri-giannoulatou-lab-denovo-mutations/MetaDenovo/demo_data/NA12891_demo.bam.bai",
+  "MetaDenovo_workflow.child_bam": "s3://vccri-giannoulatou-lab-denovo-mutations/MetaDenovo/demo_data/NA12878_demo.bam",
+  "MetaDenovo_workflow.child_bam_bai": "s3://vccri-giannoulatou-lab-denovo-mutations/MetaDenovo/demo_data/NA12878_demo.bam.bai",
+  "##_COMMENT2": "chromosome IDs",
+  "MetaDenovo_workflow.chromosome_ids": [
+    22
+  ],
+  "##_COMMENT3": "Reference files",
+  "MetaDenovo_workflow.reference": "s3://vccri-giannoulatou-lab-denovo-mutations/MetaDenovo/demo_data/chr22.fa",
+  "MetaDenovo_workflow.reference_fai": "s3://vccri-giannoulatou-lab-denovo-mutations/MetaDenovo/demo_data/chr22.fa.fai",
+  "MetaDenovo_workflow.reference_dict": "s3://vccri-giannoulatou-lab-denovo-mutations/MetaDenovo/demo_data/chr22.dict",
+  "##_COMMENT4": "PEDIGREE File",
+  "MetaDenovo_workflow.ped_file": "s3://vccri-giannoulatou-lab-denovo-mutations/MetaDenovo/demo_data/CEPH_trio_30x_noheader.ped",
+  "##_COMMENT5": "GATK Output Trio VCF File",
+  "MetaDenovo_workflow.gatk_vcf": "s3://vccri-giannoulatou-lab-denovo-mutations/MetaDenovo/demo_data/input_gatk_demo.vcf"
 }
