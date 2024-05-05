@@ -84,13 +84,13 @@ task callConsensusDNMs {
 #			echo $line"|"$num_callers >> MetaDenovo_four_callers_${variant_type}.txt
 			echo $line"|"$num_callers$caller_id >> MetaDenovo_four_callers_${variant_type}.txt
 		  elif [ $num_callers -eq 3 ]; then
-			echo $line"|"$num_callers >> MetaDenovo_three_callers_${variant_type}.txt
+#			echo $line"|"$num_callers >> MetaDenovo_three_callers_${variant_type}.txt
                         echo $line"|"$num_callers$caller_id >> MetaDenovo_three_callers_${variant_type}.txt
 		  elif [ $num_callers -eq 2 ]; then
-			echo $line"|"$num_callers >> MetaDenovo_two_callers_${variant_type}.txt
+#			echo $line"|"$num_callers >> MetaDenovo_two_callers_${variant_type}.txt
                         echo $line"|"$num_callers$caller_id >> MetaDenovo_two_callers_${variant_type}.txt
 		  elif [ $num_callers -eq 1 ]; then
-			echo $line"|"$num_callers >> MetaDenovo_one_callers_${variant_type}.txt
+#			echo $line"|"$num_callers >> MetaDenovo_one_callers_${variant_type}.txt
                         echo $line"|"$num_callers$caller_id >> MetaDenovo_one_callers_${variant_type}.txt
 		  else
 		    echo "Caller number out of range"
