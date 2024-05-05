@@ -57,23 +57,28 @@ task callConsensusDNMs {
 		for line in $LINES
 		do
 		  num_callers=0
+		  caller_id="|"
 		  if grep -q $line ${DenovoGear_file}; then
 			num_callers=$((num_callers+1))
+			caller_id+="D"
 		  fi
 		  
 		  if grep -q $line ${TrioDenovo_file}; then
 			num_callers=$((num_callers+1))
+			caller_id+="T"
 		  fi
 		  
 		  if grep -q $line ${PBT_file}; then
 			num_callers=$((num_callers+1))
+			caller_id+="P"
 		  fi
 		  
 		  if grep -q $line ${varScan2_file}; then
 			num_callers=$((num_callers+1))
+			caller_id+="V"
 		  fi
 		  
-		  #echo $line"|"$num_callers
+		  #echo $line"|"$num_callers$caller_id
 		  
 		  if [ $num_callers -eq 4 ]; then 
 #			echo $line"|"$num_callers >> MetaDenovo_four_callers_${variant_type}.txt
@@ -87,7 +92,7 @@ task callConsensusDNMs {
 		  elif [ $num_callers -eq 1 ]; then
 #			echo $line"|"$num_callers >> MetaDenovo_one_callers_${variant_type}.txt
                         echo $line"|"$num_callers$caller_id >> MetaDenovo_one_callers_${variant_type}.txt
-                  else
+		  else
 		    echo "Caller number out of range"
 		  fi
 				  
