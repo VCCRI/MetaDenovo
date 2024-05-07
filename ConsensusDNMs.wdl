@@ -1,11 +1,6 @@
 workflow ConsensusDNMs {
-    
-	#File DenovoGear_file = "s3://vccri-gwfcore-mictro/cromwell-execution/MetaDenovo_workflow/86429a68-8667-4c56-8278-a3773519f917/call-DenovoGear_p/DenovoGear_p.DenovoGearPipeline/9fd98288-5acf-4426-a6d2-59f12f74c424/call-ListOfDNMs/DenovoGear_listof_indels_file.txt"
-	#File TrioDenovo_file = "s3://vccri-gwfcore-mictro/cromwell-execution/MetaDenovo_workflow/86429a68-8667-4c56-8278-a3773519f917/call-TrioDenovo_p/TrioDenovo_p.TrioDenovoPipeline/cdc0dc21-103d-46a7-b516-8902ffe72c18/call-ListOfDNMs/TrioDenovo_listof_indels_file.txt"
-	#File varScan2_file = "s3://vccri-gwfcore-mictro/cromwell-execution/MetaDenovo_workflow/57354376-12f8-4b07-8513-bd8edeb03f2e/call-VarScan2_p/VarScan2_p.VarScan2Pipeline/728605b4-46dc-43b6-802f-d866bb8e98ab/call-ListOfDNMs/VarScan2_listof_indels_file.txt"
-	#File PBT_file = "s3://vccri-gwfcore-mictro/cromwell-execution/MetaDenovo_workflow/86429a68-8667-4c56-8278-a3773519f917/call-PBT_p/PBT_p.PhasebytransmissionPipeline/9dd5671b-96d2-48e3-a54b-0d704e753803/call-ListOfDNMs/PBT_listof_dnINDELs_file.txt"
-	
-	File Consensus_DNM_script = "s3://vccri-giannoulatou-lab-denovo-mutations/MetaDenovo/MetaDenovoConsensusDNMs.sh"
+   	
+	##File Consensus_DNM_script = "s3://vccri-giannoulatou-lab-denovo-mutations/MetaDenovo/MetaDenovoConsensusDNMs.sh"
 	String variant_type
 	#String variant_type = "INDEL"
 	
@@ -16,7 +11,7 @@ workflow ConsensusDNMs {
 				TrioDenovo_file=TrioDenovo_file,
 				varScan2_file=varScan2_file,
 				PBT_file=PBT_file,
-				Consensus_DNM_script=Consensus_DNM_script,
+				## Consensus_DNM_script=Consensus_DNM_script,
 				variant_type=variant_type
         }
 		
@@ -36,7 +31,7 @@ task callConsensusDNMs {
 		File TrioDenovo_file
 		File varScan2_file
 		File PBT_file
-		File Consensus_DNM_script
+##		File Consensus_DNM_script
 		String variant_type
     
 	runtime {
@@ -85,13 +80,13 @@ task callConsensusDNMs {
 			echo $line"|"$num_callers$caller_id >> MetaDenovo_four_callers_${variant_type}.txt
 		  elif [ $num_callers -eq 3 ]; then
 #			echo $line"|"$num_callers >> MetaDenovo_three_callers_${variant_type}.txt
-                        echo $line"|"$num_callers$caller_id >> MetaDenovo_three_callers_${variant_type}.txt
+            echo $line"|"$num_callers$caller_id >> MetaDenovo_three_callers_${variant_type}.txt
 		  elif [ $num_callers -eq 2 ]; then
 #			echo $line"|"$num_callers >> MetaDenovo_two_callers_${variant_type}.txt
-                        echo $line"|"$num_callers$caller_id >> MetaDenovo_two_callers_${variant_type}.txt
+            echo $line"|"$num_callers$caller_id >> MetaDenovo_two_callers_${variant_type}.txt
 		  elif [ $num_callers -eq 1 ]; then
 #			echo $line"|"$num_callers >> MetaDenovo_one_callers_${variant_type}.txt
-                        echo $line"|"$num_callers$caller_id >> MetaDenovo_one_callers_${variant_type}.txt
+            echo $line"|"$num_callers$caller_id >> MetaDenovo_one_callers_${variant_type}.txt
 		  else
 		    echo "Caller number out of range"
 		  fi
