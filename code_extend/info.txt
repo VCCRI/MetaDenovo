@@ -1,0 +1,2 @@
+This directory contats software that needs to be added to your S3 bucket.
+These software are called by the batch jobs (instances) created from the MetaDenovo WDL from the Cromwell Server.
