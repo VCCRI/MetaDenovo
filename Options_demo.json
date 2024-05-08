@@ -1,5 +1,5 @@
 {
-	"final_workflow_outputs_dir": "<please add your S3 bucket for output of the demo>",
+    "final_workflow_outputs_dir": "<please add your S3 bucket for output of the demo>",
     "use_relative_output_paths": true,
     "final_workflow_log_dir": "<please add your S3 bucket for output of the demo>/wf_logs",
     "final_call_logs_dir": "<please add your S3 bucket for output of the demo>/call_logs"

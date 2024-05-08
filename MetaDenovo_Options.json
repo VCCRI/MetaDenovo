@@ -1,1 +1,6 @@
-{"final_workflow_outputs_dir":"s3://vccri-gwfcore-mictro/CHD_Jan_2023/trio_3376/","final_workflow_log_dir":"s3://vccri-gwfcore-mictro/CHD_Jan_2023/trio_3376/wf_logs","final_call_logs_dir":"s3://vccri-gwfcore-mictro/CHD_Jan_2023/trio_3376/call_logs"}
+{
+    "final_workflow_outputs_dir": "<please add your S3 bucket for output of the MetaDenovo run/results>",
+    "use_relative_output_paths": true,
+    "final_workflow_log_dir": "<please add your S3 bucket for output of the MetaDenovo run>/wf_logs",
+    "final_call_logs_dir": "<please add your S3 bucket for output of the MetaDenovo run>/call_logs"
+}
