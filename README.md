@@ -69,7 +69,7 @@ g.	Run the MetaDenovo DEMO workflow using curl command :
 
 * It should take less than 1 hour to run DEMO data.
 
-h.	Run the MetaDenovo workflow for your now data :
+h.	Run the MetaDenovo workflow for your own data :
 
 Provide the AWS S3 storage service paths to the following input file parameters in the MetaDenovo_UserInputs.json:
  
@@ -110,6 +110,8 @@ Setup your MetaDenovo_Options.json to contain the AWS S3 storage service paths w
 * final_workflow_log_dir = location to store workflow logs - a unique ID log file keeps track of all steps from the MetaDeNovo workflow.
 
 * final_call_logs_dir = location to store call logs
+
+       curl -X POST "http://localhost:8000/api/workflows/v1" -H "accept: application/json" -F "workflowSource=@MetaDenovo.wdl" -F "workflowDependencies=@imports.zip" -F "workflowInputs=@MetaDenovo_UserInputs.json" -F "workflowOptions=@MetaDenovo_Options.json"
 
 MetaDeNovo is executed using the following command on the  Cromwell server:
   
