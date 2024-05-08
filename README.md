@@ -46,8 +46,8 @@ e.	Copy the directory "code_extend" into your own S3 bucket. The py files are us
     need to be accessible by the batch instances created by MetaDenvo workflow.
 	
 * Update the parameters in UserInputs.json/UserInputs_demo.json 
-* "MetaDenovo_workflow.python_file": "s3://<your S3 location>/code_extend/DenovoGear_numeric_genotype.py",
-* "MetaDenovo_workflow.selectDNMGenotype_program": "s3://<your S3 location>/code_extend/TrioDenovo_select_DNM_genotype.py"
+* "MetaDenovo_workflow.python_file": "s3://your S3 location/code_extend/DenovoGear_numeric_genotype.py",
+* "MetaDenovo_workflow.selectDNMGenotype_program": "s3://your S3 location>code_extend/TrioDenovo_select_DNM_genotype.py"
 
 g.	Run the MetaDenovo DEMO workflow using curl command :
 
@@ -97,9 +97,9 @@ Provide the AWS S3 storage service paths to the following input file parameters 
 
 * gatk_vcf = GATK processed VCF file for trio
 
-* python_file = <your S3 location>/code_extend/DenovoGear_numeric_genotype.py
+* python_file = your S3 location/code_extend/DenovoGear_numeric_genotype.py
 
-* selectDNMGenotype_program = <your S3 location>/code_extend/TrioDenovo_select_DNM_genotype.py
+* selectDNMGenotype_program = your S3 location/code_extend/TrioDenovo_select_DNM_genotype.py
 
 Setup your MetaDenovo_Options.json to contain the AWS S3 storage service paths where MetaDenovo outputs are to be stored:
 
