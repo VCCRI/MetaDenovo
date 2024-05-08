@@ -1,8 +1,5 @@
 workflow DenovoGearPostProcessing {
-    
-	#Array[File] DNGOutputFiles_array = ["s3://vccri-gwfcore-mictro/cromwell-execution/MetaDenovo_workflow/fc5e52ed-8ade-41d7-b370-bc8e74eb8357/call-DenovoGear_p/348895e0-e536-41d6-ad41-0b2e6d9143cb/call-DenovoGear_caller/shard-21/chr22_dng.out", "s3://vccri-gwfcore-mictro/cromwell-execution/MetaDenovo_workflow/fc5e52ed-8ade-41d7-b370-bc8e74eb8357/call-DenovoGear_p/348895e0-e536-41d6-ad41-0b2e6d9143cb/call-DenovoGear_caller/shard-20/chr21_dng.out"]
-	#File python_file = "s3://vccri-giannoulatou-lab-denovo-mutations/MetaDenovo/DenovoGear_numeric_genotype.py"
-	
+   	
 	Array[File] DNGOutputFiles_array
 	
 	call CombineDenovoGearOutput { input: DNGOutputFiles=DNGOutputFiles_array }
