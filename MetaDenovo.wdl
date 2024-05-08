@@ -18,10 +18,13 @@ workflow MetaDenovo_workflow {
 	  File reference_dict
 	  File ped_file
 	  File gatk_vcf
+	  File python_file
+	  File selectDNMGenotype_program
+
   
 	  File snpSiftJar = "s3://vccri-giannoulatou-lab-denovo-mutations/softwares/snpEff/SnpSift.jar"
-	  File python_file = "s3://vccri-gwfcore-mictro/MetaDenovo/DenovoGear_numeric_genotype.py"
-	  File selectDNMGenotype_program = "s3://vccri-gwfcore-mictro/MetaDenovo/TrioDenovo_select_DNM_genotype.py"
+	  ## File python_file = "s3://vccri-gwfcore-mictro/MetaDenovo/DenovoGear_numeric_genotype.py"
+	  ## File selectDNMGenotype_program = "s3://vccri-gwfcore-mictro/MetaDenovo/TrioDenovo_select_DNM_genotype.py"
 	  ## File Consensus_DNM_script = "s3://vccri-gwfcore-mictro/MetaDenovo/MetaDenovoConsensusDNMs.sh"
 	  
 	  

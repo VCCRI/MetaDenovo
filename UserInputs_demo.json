@@ -18,4 +18,7 @@
   "MetaDenovo_workflow.ped_file": "s3://vccri-giannoulatou-lab-denovo-mutations/MetaDenovo/demo_data/CEPH_trio_30x_noheader.ped",
   "##_COMMENT5": "GATK Output Trio VCF File",
   "MetaDenovo_workflow.gatk_vcf": "s3://vccri-giannoulatou-lab-denovo-mutations/MetaDenovo/demo_data/input_gatk_demo.vcf"
+  "##_COMMENT6": "code extend files",
+  "python_file": "s3://vccri-gwfcore-mictro/CHD_Jan_2023/Metadenovo_demo_test2/code_extend/DenovoGear_numeric_genotype.py"
+  "selectDNMGenotype_program": "s3://vccri-gwfcore-mictro/CHD_Jan_2023/Metadenovo_demo_test2/code_extend/TrioDenovo_select_DNM_genotype.py"
 }
