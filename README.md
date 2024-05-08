@@ -105,7 +105,7 @@ Setup your MetaDenovo_Options.json to contain the AWS S3 storage service paths w
 
 * final_workflow_outputs_dir = location to store output DNMs files from MetaDenovo, which contains the consensus DNMs reports mentioned above and the original DNM results from each DNM caller.
 
-* use_relative_output_paths: true
+* use_relative_output_paths: false
 
 * final_workflow_log_dir = location to store workflow logs - a unique ID log file keeps track of all steps from the MetaDeNovo workflow.
 
