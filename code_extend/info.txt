@@ -1,2 +1,5 @@
 This directory contats software that needs to be added to your S3 bucket.
 These software are called by the batch jobs (instances) created from the MetaDenovo WDL from the Cromwell Server.
+The location of these files are required in the following parameters in UserInputs json
+  "MetaDenovo_workflow.python_file": "s3://<your S3 location>/code_extend/DenovoGear_numeric_genotype.py",
+  "MetaDenovo_workflow.selectDNMGenotype_program": "s3://<your S3 location>/code_extend/TrioDenovo_select_DNM_genotype.py"
