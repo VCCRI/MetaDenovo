@@ -34,7 +34,7 @@ a.	Access Cromwell server (EC2 instance) via AWS Session Manager
 
 b.	Type in the command “sudo su - ec2-user” to switch to the user’s home directory.
 
-c.	Copy MetaDenovo WDL file onto Cromwell server
+c.	Copy MetaDenovo repository onto Cromwell server
 
        git clone https://github.com/VCCRI/MetaDenovo.git 
 
@@ -44,15 +44,16 @@ d.	Zip of dependent files into imports directory.
 
 e.	Copy the directory "code_extend" into your own S3 bucket. The py files are used by MetaDenovo workflow and 
     need to be accessible by the batch instances created by MetaDenvo workflow.
-    * Update the parameters in UserInputs.json/UserInputs_demo.json 
-    * "MetaDenovo_workflow.python_file": "s3://<your S3 location>/code_extend/DenovoGear_numeric_genotype.py",
-    * "MetaDenovo_workflow.selectDNMGenotype_program": "s3://<your S3 location>/code_extend/TrioDenovo_select_DNM_genotype.py"
+	
+* Update the parameters in UserInputs.json/UserInputs_demo.json 
+* "MetaDenovo_workflow.python_file": "s3://<your S3 location>/code_extend/DenovoGear_numeric_genotype.py",
+* "MetaDenovo_workflow.selectDNMGenotype_program": "s3://<your S3 location>/code_extend/TrioDenovo_select_DNM_genotype.py"
 
 g.	Run the MetaDenovo DEMO workflow using curl command :
 
        curl -X POST "http://localhost:8000/api/workflows/v1" -H "accept: application/json" -F "workflowSource=@MetaDenovo.wdl" -F "workflowDependencies=@imports.zip" -F "workflowInputs=@UserInputs_demo.json" -F "workflowOptions=@Options_demo.json"
 	
-* Modify UserInputs_demo.json with S3 path to the code_ezxtend py files. 
+* Modify UserInputs_demo.json with S3 path to the "code_extend/" py files. 
 
 * Mmodify Options_demo.json files to set your output S3 directory path.
 
@@ -72,44 +73,43 @@ h.	Run the MetaDenovo workflow for your now data :
 
 Provide the AWS S3 storage service paths to the following input file parameters in the MetaDenovo_UserInputs.json:
  
-•	mother_bam = Aligned BAM file of mother
+* mother_bam = Aligned BAM file of mother
 
-•	mother_bam_bai = Index file of aligned BAM file of mother
+* mother_bam_bai = Index file of aligned BAM file of mother
 
-•	father_bam = Aligned BAM file of father
+* father_bam = Aligned BAM file of father
 
-•	father_bam_bai = Index file of aligned BAM file of father
+* father_bam_bai = Index file of aligned BAM file of father
 
-•	child_bam = Aligned BAM file of offspring
+* child_bam = Aligned BAM file of offspring
 
-•	child_bam_bai = Index file of aligned BAM file of offspring
+* child_bam_bai = Index file of aligned BAM file of offspring
 
-•	chromosome IDs = list of chromosomes to interrogate for DNMs, eg [1,2,3]
+* chromosome IDs = list of chromosomes to interrogate for DNMs, eg [1,2,3]
 
-•	reference = reference genome fasta file
+* reference = reference genome fasta file
 
-•	reference_fai = Index file of reference genome fasta file
+* reference_fai = Index file of reference genome fasta file
 
-•	reference_dict = Dictionary file of reference genome fasta file
+* reference_dict = Dictionary file of reference genome fasta file
 
-•	ped_file = trio’s pedigree file
+* ped_file = trio’s pedigree file
 
-•	gatk_vcf = GATK processed VCF file for trio
+* gatk_vcf = GATK processed VCF file for trio
 
-•	python_file = <your S3 location>/code_extend/DenovoGear_numeric_genotype.py
+* python_file = <your S3 location>/code_extend/DenovoGear_numeric_genotype.py
 
-•	selectDNMGenotype_program = <your S3 location>/code_extend/TrioDenovo_select_DNM_genotype.py
+* selectDNMGenotype_program = <your S3 location>/code_extend/TrioDenovo_select_DNM_genotype.py
 
 Setup your MetaDenovo_Options.json to contain the AWS S3 storage service paths where MetaDenovo outputs are to be stored:
 
-•	final_workflow_outputs_dir = location to store output DNMs files from MetaDenovo, which contains the consensus DNMs reports mentioned above and the original DNM results from each DNM caller.
+* final_workflow_outputs_dir = location to store output DNMs files from MetaDenovo, which contains the consensus DNMs reports mentioned above and the original DNM results from each DNM caller.
 
-•	use_relative_output_paths: true
+* use_relative_output_paths: true
 
-•	final_workflow_log_dir = location to store workflow logs - a unique ID log file keeps track of all steps from the MetaDeNovo workflow.
+* final_workflow_log_dir = location to store workflow logs - a unique ID log file keeps track of all steps from the MetaDeNovo workflow.
 
-•	final_call_logs_dir = location to store call logs
-
+* final_call_logs_dir = location to store call logs
 
 MetaDeNovo is executed using the following command on the  Cromwell server:
   
@@ -128,6 +128,7 @@ MetaDeNovo is executed using the following command on the  Cromwell server:
 Here, MetaDeNovo.wdl is the main WDL file. All sub-workflow WDL files for the four DNMs callers are zipped into the imports.zip folder. 
 
 Take note of the "id" after submission as that is needed to check on the status of your workflow run.
+
 "id":"1c2f0368-e876-4699-9049-7a5510f6df2f","status":"Submitted"}
 
 i.	Checking the status of your MetaDenovo workflow run :
@@ -135,5 +136,7 @@ i.	Checking the status of your MetaDenovo workflow run :
 curl -X GET "http://localhost:8000/api/workflows/v1/1c2f0368-e876-4699-9049-7a5510f6df2f/status"
 
 Response:
+
 {"status":"Running","id":"1c2f0368-e876-4699-9049-7a5510f6df2f"}
+
 {"status":"Running","id":"1c2f0368-e876-4699-9049-7a5510f6df2f"}
