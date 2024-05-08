@@ -21,12 +21,7 @@ workflow MetaDenovo_workflow {
 	  File python_file
 	  File selectDNMGenotype_program
 
-  
 	  File snpSiftJar = "s3://vccri-giannoulatou-lab-denovo-mutations/softwares/snpEff/SnpSift.jar"
-	  ## File python_file = "s3://vccri-gwfcore-mictro/MetaDenovo/DenovoGear_numeric_genotype.py"
-	  ## File selectDNMGenotype_program = "s3://vccri-gwfcore-mictro/MetaDenovo/TrioDenovo_select_DNM_genotype.py"
-	  ## File Consensus_DNM_script = "s3://vccri-gwfcore-mictro/MetaDenovo/MetaDenovoConsensusDNMs.sh"
-	  
 	  
 	  ## Call workflow of Phasebytransmission caller
 		call PBT_p.PhasebytransmissionPipeline as PBT_p {
@@ -87,7 +82,6 @@ workflow MetaDenovo_workflow {
 	call consensusDNM_p.callConsensusDNMs as consensusDNM_snv {
 		input:
 		variant_type = "SNP",
-		## Consensus_DNM_script = Consensus_DNM_script,
 		PBT_file = PBT_p.PBT_listof_dnSNPs_file,
 		TrioDenovo_file = TrioDenovo_p.TrioDenovo_list_of_snps_output,
 		varScan2_file = VarScan2_p.VarScan2_list_of_snps_output,
@@ -98,7 +92,6 @@ workflow MetaDenovo_workflow {
 	call consensusDNM_p.callConsensusDNMs as consensusDNM_indel {
 		input:
 		variant_type = "INDEL",
-		## Consensus_DNM_script = Consensus_DNM_script,
 		PBT_file = PBT_p.PBT_listof_dnINDELs_file,
 		TrioDenovo_file = TrioDenovo_p.TrioDenovo_list_of_indels_output,
 		varScan2_file = VarScan2_p.VarScan2_list_of_indels_output,

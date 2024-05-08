@@ -1,10 +1,9 @@
 workflow VarScan2PostProcessing {
     
-	File snpSiftJar = "s3://vccri-giannoulatou-lab-denovo-mutations/softwares/snpEff/SnpSift.jar"
-	
+	##File snpSiftJar = "s3://vccri-giannoulatou-lab-denovo-mutations/softwares/snpEff/SnpSift.jar"
+	File snpSiftJar
 	Array[File] VarScan2_output_snp_files
 	Array[File] VarScan2_output_indel_files
-	#File snpSiftJar
 	
 	## Post-processing steps are executed for two types of variants - snps and indels. 
 	## The steps are executed in parallel for each variant type, so scatter parallelism is perfomed.

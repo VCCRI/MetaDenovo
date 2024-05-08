@@ -1,9 +1,6 @@
 workflow TrioDenovoPipeline {
 	File gatk_vcf
 	File ped_file
-#	File snpSiftJar = "s3://vccri-giannoulatou-lab-denovo-mutations/softwares/snpEff/SnpSift.jar"
-#	File selectDNMGenotype_program = "s3://vccri-gwfcore-mictro/MetaDenovo/TrioDenovo_select_DNM_genotype.py"
-	
 	File snpSiftJar
 	File selectDNMGenotype_program
 	
