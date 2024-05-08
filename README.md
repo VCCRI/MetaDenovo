@@ -139,4 +139,4 @@ Response:
 
 {"status":"Running","id":"1c2f0368-e876-4699-9049-7a5510f6df2f"}
 
-{"status":"Running","id":"1c2f0368-e876-4699-9049-7a5510f6df2f"}
+{"status":"Succeeded","id":"1c2f0368-e876-4699-9049-7a5510f6df2f"}
