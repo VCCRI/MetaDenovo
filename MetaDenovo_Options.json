@@ -1,6 +1,6 @@
 {
     "final_workflow_outputs_dir": "<please add your S3 bucket for output of the MetaDenovo run/results>",
-    "use_relative_output_paths": true,
+    "use_relative_output_paths": false,
     "final_workflow_log_dir": "<please add your S3 bucket for output of the MetaDenovo run>/wf_logs",
     "final_call_logs_dir": "<please add your S3 bucket for output of the MetaDenovo run>/call_logs"
 }
