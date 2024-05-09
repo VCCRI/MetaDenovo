@@ -23,11 +23,11 @@ workflow PhasebytransmissionPipeline {
 			Mendel_Violations_file=RunPhasebytranmission.mendelViolations_file
 		}
 		
-##		## Call AnnotatePBTVcf task to annotate variant type in VCF file.
-##		call AnnotatePBTVcf1 {
-##				input:
-##				PBT_vcf=RunPhasebytranmission.pbt_output_vcf_file
-##			}
+		## Call AnnotatePBTVcf task to annotate variant type in VCF file.
+		call AnnotatePBTVcf1a {
+				input:
+				PBT_vcf=RunPhasebytranmission.pbt_output_vcf_file
+			}
 
 		call AnnotatePBTVcf1 {
 				input:
@@ -37,7 +37,7 @@ workflow PhasebytransmissionPipeline {
 		
 		## Call FilterDNMGenotypePattern task to filter variants with genotype pattern of de novo mutation from VCF file.
 		
-##		call FilterDNMGenotypePattern1 {
+##		call FilterDNMGenotypePattern1a {
 ##				input:
 ##				PBT_output_file_annotated=AnnotatePBTVcf1.PBT_output_file_annotated
 ##			}
@@ -147,12 +147,12 @@ task AnnotatePBTVcf1a {
     }
 	
     command {
-        java -jar /snpEff/SnpSift.jar varType ${PBT_vcf} > PBT_output_file_annotated.vcf
+        java -jar /snpEff/SnpSift.jar -h
     }
    
-    output {
-        File PBT_output_file_annotated = "PBT_output_file_annotated.vcf"
-	}
+##   output {
+##        File PBT_output_file_annotated = "PBT_output_file_annotated.vcf"
+##	}
 }
 
 ## Filter variants with de novo mutation genotype pattern (Child = 0/1, father = 0/0, mother = 0/0)
