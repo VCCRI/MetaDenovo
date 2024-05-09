@@ -24,10 +24,10 @@ workflow PhasebytransmissionPipeline {
 		}
 		
 		## Call AnnotatePBTVcf task to annotate variant type in VCF file.
-		call AnnotatePBTVcf1a {
-				input:
-				PBT_vcf=RunPhasebytranmission.pbt_output_vcf_file
-			}
+##		call AnnotatePBTVcf1a {
+##				input:
+##				PBT_vcf=RunPhasebytranmission.pbt_output_vcf_file
+##			}
 
 		call AnnotatePBTVcf1 {
 				input:
@@ -188,7 +188,8 @@ task AnnotatePBTVcf1 {
     }
  
     runtime {
-        docker: "openjdk:11.0-jdk"
+##        docker: "openjdk:11.0-jdk"
+        docker: "stephenturner/snpsift:latest"
         memory: "4GB"
         cpu: 1
         disks: "local-disk"
