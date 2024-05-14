@@ -13,7 +13,6 @@ workflow VarScan2Pipeline {
     File reference_dict
     Array[Int] chromosome_ids
     Array[String] chromosomes = prefix("chr", chromosome_ids)
-	File snpSiftJar
 	
 	## Call samtools mpileup and VarScan2 caller tasks per chromosome as scatter parallelism
 	
@@ -52,7 +51,6 @@ workflow VarScan2Pipeline {
 	
 	call VarScan2_post.ExtractDNMsVarScan2VCF as ExtractDNMsVarScan2VCF {
         input:
-			snpSiftJarFile=snpSiftJar,
 			VarScan2_snp_VCF_file=CombineVarScan2Output.VarScan2_snp_combined,
 			VarScan2_indel_VCF_file=CombineVarScan2Output.VarScan2_indel_combined
 	}

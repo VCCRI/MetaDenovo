@@ -1,7 +1,6 @@
 workflow TrioDenovoPipeline {
 	File gatk_vcf
 	File ped_file
-	File snpSiftJar
 	File selectDNMGenotype_program
 	
 		## call RunTriodenovo that runs TrioDenovo caller.
@@ -20,7 +19,6 @@ workflow TrioDenovoPipeline {
 		## call AnnotateDNMsTrioDenovoVCF task to annotate VCF file.
 		call AnnotateDNMsTrioDenovoVCF {
             input:
-			snpSiftJarFile=snpSiftJar,
             Triodenovo_chr1_22_vcf=DenovoQualityDatatype.Triodenovo_chr1_22_vcf
 		}
 
@@ -100,15 +98,15 @@ task DenovoQualityDatatype {
 ## The VCF file is annotated for variant type. 
 
 task AnnotateDNMsTrioDenovoVCF {
-    File snpSiftJarFile
 	File Triodenovo_chr1_22_vcf
 	
     command {
-        java -jar ${snpSiftJarFile} varType ${Triodenovo_chr1_22_vcf} > Triodenovo_output_file_annotated.vcf 
+        java -jar /snpEff/SnpSift.jar varType ${Triodenovo_chr1_22_vcf} > Triodenovo_output_file_annotated.vcf 
     }
  
     runtime {
-        docker: "openjdk:11.0-jdk"
+##        docker: "openjdk:11.0-jdk"
+        docker: "stevetsa/snpannotools:latest"
         memory: "4GB"
         cpu: 1
         disks: "local-disk"

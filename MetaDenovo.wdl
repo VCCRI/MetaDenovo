@@ -21,7 +21,7 @@ workflow MetaDenovo_workflow {
 	  File python_file
 	  File selectDNMGenotype_program
 
-	  File snpSiftJar = "s3://vccri-giannoulatou-lab-denovo-mutations/softwares/snpEff/SnpSift.jar"
+##	  File snpSiftJar = "s3://vccri-giannoulatou-lab-denovo-mutations/softwares/snpEff/SnpSift.jar"
 	  
 	  ## Call workflow of Phasebytransmission caller
 		call PBT_p.PhasebytransmissionPipeline as PBT_p {
@@ -32,7 +32,6 @@ workflow MetaDenovo_workflow {
 			reference=reference,
 			reference_fai=reference_fai,
 			reference_dict=reference_dict
-##			snpSiftJar=snpSiftJar
 		}
 	
 		
@@ -41,7 +40,7 @@ workflow MetaDenovo_workflow {
 			input:
 			gatk_vcf=gatk_vcf,
 			ped_file=ped_file,
-			snpSiftJar=snpSiftJar,
+##			snpSiftJar=snpSiftJar,
 			selectDNMGenotype_program=selectDNMGenotype_program
 		}
 		
@@ -66,6 +65,7 @@ workflow MetaDenovo_workflow {
 	## Call workflow of VarScan2 caller
 		call VarScan2_p.VarScan2Pipeline as VarScan2_p {
 		input:
+##		snpSiftJar=snpSiftJar,
 		chromosome_ids=chromosome_ids,
 		reference=reference,
 		reference_fai=reference_fai,
@@ -75,8 +75,7 @@ workflow MetaDenovo_workflow {
         mother_bam=mother_bam,
 		mother_bam_bai=mother_bam_bai,
 		child_bam=child_bam,
-		child_bam_bai=child_bam_bai,
-		snpSiftJar=snpSiftJar
+		child_bam_bai=child_bam_bai
 	}
 	
 	## Call callConsensusDNMs to generate output files for consensus of de novo SNPs using four, three, two and one callers.
