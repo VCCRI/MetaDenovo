@@ -157,13 +157,13 @@ task FilterDNMGenotypePattern {
         File PBT_output_file_annotated
 	
     command {
-        java -jar ${snpSiftJar} filter "( GEN[0].GT == '0/1' ) & ( GEN[1].GT == '0/0' ) & ( GEN[2].GT == '0/0' )" ${PBT_output_file_annotated} > PBT_GenoType_Filtered.vcf
-##        java -jar /snpEff/SnpSift.jar filter "( GEN[0].GT == '0/1' ) & ( GEN[1].GT == '0/0' ) & ( GEN[2].GT == '0/0' )" ${PBT_output_file_annotated} > PBT_GenoType_Filtered.vcf
+##        java -jar ${snpSiftJar} filter "( GEN[0].GT == '0/1' ) & ( GEN[1].GT == '0/0' ) & ( GEN[2].GT == '0/0' )" ${PBT_output_file_annotated} > PBT_GenoType_Filtered.vcf
+        java -jar /snpEff/SnpSift.jar filter "( GEN[0].GT == '0/1' ) & ( GEN[1].GT == '0/0' ) & ( GEN[2].GT == '0/0' )" ${PBT_output_file_annotated} > PBT_GenoType_Filtered.vcf
     }
  
     runtime {
-        docker: "openjdk:11.0-jdk"
-##        docker: "stevetsa/snpannotools:latest"
+##        docker: "openjdk:11.0-jdk"
+        docker: "stevetsa/snpannotools:latest"
         memory: "4GB"
         cpu: 1
         disks: "local-disk"
