@@ -28,10 +28,11 @@ workflow MetaDenovo_workflow {
 			input:
 			gatk_vcf=gatk_vcf,
 			ped_file=ped_file,
+##			snpSiftJar=snpSiftJar,
 			reference=reference,
 			reference_fai=reference_fai,
-			reference_dict=reference_dict,
-			snpSiftJar=snpSiftJar
+			reference_dict=reference_dict
+##			snpSiftJar=snpSiftJar
 		}
 	
 		
