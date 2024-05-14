@@ -59,8 +59,8 @@ task ExtractDNMsVarScan2VCF {
 		File snpSiftJar = "s3://vccri-giannoulatou-lab-denovo-mutations/softwares/snpEff/SnpSift.jar"
 		
     command {
-        java -jar ${snpSiftJarFile} filter "( FILTER = 'PASS' & exists DENOVO & GEN[0].GT == '0/0'  & GEN[1].GT == '0/0' & GEN[2].GT == '0/1')" ${VarScan2_snp_VCF_file} > VarScan2_snp_DNMs_file.vcf
-	java -jar ${snpSiftJarFile} filter "( FILTER = 'PASS' & exists DENOVO & GEN[0].GT == '0/0'  & GEN[1].GT == '0/0' & GEN[2].GT == '0/1')" ${VarScan2_indel_VCF_file} > VarScan2_indel_DNMs_file.vcf
+        java -jar ${snpSiftJar} filter "( FILTER = 'PASS' & exists DENOVO & GEN[0].GT == '0/0'  & GEN[1].GT == '0/0' & GEN[2].GT == '0/1')" ${VarScan2_snp_VCF_file} > VarScan2_snp_DNMs_file.vcf
+	java -jar ${snpSiftJar} filter "( FILTER = 'PASS' & exists DENOVO & GEN[0].GT == '0/0'  & GEN[1].GT == '0/0' & GEN[2].GT == '0/1')" ${VarScan2_indel_VCF_file} > VarScan2_indel_DNMs_file.vcf
     }
  
     runtime {
