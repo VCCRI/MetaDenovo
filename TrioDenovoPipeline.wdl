@@ -106,7 +106,7 @@ task AnnotateDNMsTrioDenovoVCF {
  
     runtime {
 ##        docker: "openjdk:11.0-jdk"
-        docker: "stevetsa/snpannotools:latest"
+        docker: "stephenturner/snpsift:latest"
         memory: "4GB"
         cpu: 1
         disks: "local-disk"
