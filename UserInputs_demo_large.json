@@ -5,7 +5,7 @@
   "MetaDenovo_workflow.father_bam": "s3://vccri-giannoulatou-lab-denovo-mutations/CEU_trio_1000GP/BAMS/NA12891_chr20_21_22.bam",
   "MetaDenovo_workflow.father_bam_bai": "s3://vccri-giannoulatou-lab-denovo-mutations/CEU_trio_1000GP/BAMS/NA12891_chr20_21_22.bam.bai",
   "MetaDenovo_workflow.child_bam": "s3://vccri-giannoulatou-lab-denovo-mutations/CEU_trio_1000GP/BAMS/NA12878_chr20_21_22.bam",
-  "MetaDenovo_workflow.child_bam_bai": "s3://vccri-giannoulatou-lab-denovo-mutations/CEU_trio_1000GP/BAMS/NA12892_chr20_21_22.bam.bai",
+  "MetaDenovo_workflow.child_bam_bai": "s3://vccri-giannoulatou-lab-denovo-mutations/CEU_trio_1000GP/BAMS/NA12878_chr20_21_22.bam.bai",
   "##_COMMENT2": "chromosome IDs",
   "MetaDenovo_workflow.chromosome_ids": [
     20,21,22
@@ -15,7 +15,7 @@
   "MetaDenovo_workflow.reference_fai": "s3://vccri-giannoulatou-lab-denovo-mutations/References_and_Databases/hg38.noalt.decoy.bwa/GCA_000001405.15_GRCh38_no_alt_plus_hs38d1_analysis_set.fna.fai",
   "MetaDenovo_workflow.reference_dict": "s3://vccri-giannoulatou-lab-denovo-mutations/References_and_Databases/hg38.noalt.decoy.bwa/GCA_000001405.15_GRCh38_no_alt_plus_hs38d1_analysis_set.dict",
   "##_COMMENT4": "PEDIGREE File",
-  "MetaDenovo_workflow.ped_file": "s3://vccri-giannoulatou-lab-denovo-mutations/MetaDenovo/demo_data/CEPH_trio_30x_noheader.ped",
+  "MetaDenovo_workflow.ped_file": "s3://vccri-giannoulatou-lab-denovo-mutations/CEU_trio_1000GP/CEPH_trio_noheader.ped",
   "##_COMMENT5": "GATK Output Trio VCF File",
   "MetaDenovo_workflow.gatk_vcf": "s3://vccri-giannoulatou-lab-denovo-mutations/CEU_trio_1000GP/GATK/CEPH-trio-gatk4-bp-co_called_filterd.vqsr.DBN_filtered_name_corrected.vcf",
   "##_COMMENT6": "code extend files",
