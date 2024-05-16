@@ -20,8 +20,6 @@ workflow MetaDenovo_workflow {
 	  File gatk_vcf
 	  File python_file
 	  File selectDNMGenotype_program
-
-##	  File snpSiftJar = "s3://vccri-giannoulatou-lab-denovo-mutations/softwares/snpEff/SnpSift.jar"
 	  
 	  ## Call workflow of Phasebytransmission caller
 		call PBT_p.PhasebytransmissionPipeline as PBT_p {
