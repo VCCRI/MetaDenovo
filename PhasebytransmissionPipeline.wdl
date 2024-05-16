@@ -133,7 +133,7 @@ task AnnotatePBTVcf {
  
     runtime {
 ##        docker: "openjdk:11.0-jdk"
-        docker: "stephenturner/snpsift:latest"
+        docker: "gscuser/snpsift:5.0e"
         memory: "4GB"
         cpu: 1
         disks: "local-disk"
@@ -156,7 +156,7 @@ task FilterDNMGenotypePattern {
  
     runtime {
 ##        docker: "openjdk:11.0-jdk"
-        docker: "stephenturner/snpsift:latest"
+        docker: "gscuser/snpsift:5.0e"
         memory: "4GB"
         cpu: 1
         disks: "local-disk"
