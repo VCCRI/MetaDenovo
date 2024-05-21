@@ -66,7 +66,7 @@ task NumericGenotype {
   
 	runtime {
         docker: "python:2.7.18-stretch"
-		memory: "8GB"
+		memory: "4GB"
         cpu: 2
         disks: "local-disk"
     }
