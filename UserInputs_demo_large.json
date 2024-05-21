@@ -15,9 +15,9 @@
   "MetaDenovo_workflow.reference_fai": "s3://vccri-giannoulatou-lab-denovo-mutations/References_and_Databases/hg38.noalt.decoy.bwa/GCA_000001405.15_GRCh38_no_alt_plus_hs38d1_analysis_set.fna.fai",
   "MetaDenovo_workflow.reference_dict": "s3://vccri-giannoulatou-lab-denovo-mutations/References_and_Databases/hg38.noalt.decoy.bwa/GCA_000001405.15_GRCh38_no_alt_plus_hs38d1_analysis_set.dict",
   "##_COMMENT4": "PEDIGREE File",
-  "MetaDenovo_workflow.ped_file": "s3://vccri-giannoulatou-lab-denovo-mutations/CEU_trio_1000GP/CEPH_trio_noheader.ped",
+  "MetaDenovo_workflow.ped_file": "s3://vccri-giannoulatou-lab-denovo-mutations/CEU_trio_1000GP/CEPH_trio_30x_noheader.ped",
   "##_COMMENT5": "GATK Output Trio VCF File",
-  "MetaDenovo_workflow.gatk_vcf": "s3://vccri-giannoulatou-lab-denovo-mutations/CEU_trio_1000GP/GATK/CEPH-trio-gatk4-bp-co_called_filterd.vqsr.DBN_filtered_name_corrected.vcf",
+  "MetaDenovo_workflow.gatk_vcf": "s3://vccri-giannoulatou-lab-denovo-mutations/CEU_trio_1000GP/GATK/CEPH-trio-gatk4-bp-co_called_filterd.vqsr.DBN_filtered.vcf",
   "##_COMMENT6": "code extend files",
   "MetaDenovo_workflow.python_file": "s3://vccri-gwfcore-mictro/CHD_Jan_2023/Metadenovo_demo_test2/code_extend/DenovoGear_numeric_genotype.py",
   "MetaDenovo_workflow.selectDNMGenotype_program": "s3://vccri-gwfcore-mictro/CHD_Jan_2023/Metadenovo_demo_test2/code_extend/TrioDenovo_select_DNM_genotype.py"
