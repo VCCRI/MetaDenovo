@@ -17,7 +17,7 @@
   "##_COMMENT4":"PEDIGREE File",
   "MetaDenovo_workflow.ped_file":"s3://vccri-giannoulatou-lab-denovo-mutations/CHD-Jan-2023/trio-3654/trio_3654.ped",
   "##_COMMENT5":"GATK Output Trio VCF File",
-  "MetaDenovo_workflow.gatk_vcf":"s3://vccri-giannoulatou-lab-denovo-mutations/CHD-Jan-2023/trio-3654/trio_3654.vcf"},
+  "MetaDenovo_workflow.gatk_vcf":"s3://vccri-giannoulatou-lab-denovo-mutations/CHD-Jan-2023/trio-3654/trio_3654.vcf",
   "##_COMMENT6": "code extend files",
   "MetaDenovo_workflow.python_file": "s3://vccri-gwfcore-mictro/CHD_Jan_2023/Metadenovo_demo_test2/code_extend/DenovoGear_numeric_genotype.py",
   "MetaDenovo_workflow.selectDNMGenotype_program": "s3://vccri-gwfcore-mictro/CHD_Jan_2023/Metadenovo_demo_test2/code_extend/TrioDenovo_select_DNM_genotype.py"
