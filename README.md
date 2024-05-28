@@ -18,7 +18,7 @@ MetaDenovo utilizes consensus for current state-of-the-art de novo callers (DeNo
 
 See the Cromwell documentation for details - https://cromwell.readthedocs.io/en/stable/
 
-## We have tested MetaDenovo using Cromwell on Amazon Web Services : 
+We have tested MetaDenovo using Cromwell on Amazon Web Services.
 
 Establishing Cromwell on AWS consists of three steps :
 
