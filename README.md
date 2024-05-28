@@ -16,8 +16,6 @@ MetaDenovo utilizes consensus for current state-of-the-art de novo callers (DeNo
 
 ### Cromwell Setup on Amazon Web Services : 
 
-Please check out this link for help in setting up Cromwell Workflow : https://docs.opendata.aws/genomics-workflows/
-
 It consists of mainly three steps :
 
   a.	Creation of Amazon VPC 
@@ -26,7 +24,7 @@ It consists of mainly three steps :
   
   c.	Creation of Workflow Orchestrators using Cromwell
 
-Please make sure if you have sufficient credits available for utilizing AWS.
+Please make sure you have sufficient credits available for utilizing AWS.
 
 ## Running MetaDenovo.WDL script 
 
