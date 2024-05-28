@@ -14,9 +14,13 @@ MetaDenovo utilizes consensus for current state-of-the-art de novo callers (DeNo
 
 ## System Requirements 
 
-### Cromwell Setup on Amazon Web Services : 
+### Cromwell Setup ###
 
-It consists of mainly three steps :
+See the Cromwell documentation for details - https://cromwell.readthedocs.io/en/stable/
+
+## We have tested MetaDenovo using Cromwell on Amazon Web Services : 
+
+Establishing Cromwell on AWS consists of three steps :
 
   a.	Creation of Amazon VPC 
   
